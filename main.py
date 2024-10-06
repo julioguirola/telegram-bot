@@ -49,7 +49,7 @@ async def send_profits(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     chat_id = update.effective_message.chat_id
 
     job_removed = remove_job_if_exists(str(chat_id), context)
-    context.job_queue.run_once(profit, 1, chat_id=chat_id, name=str(chat_id))
+    context.job_queue.run_once(profit, 86400, chat_id=chat_id, name=str(chat_id))
 
 
 
