@@ -23,9 +23,10 @@ async def profit(context: ContextTypes.DEFAULT_TYPE) -> None:
     for lista in list_of_arb_sym:
         try:
             a = getPrice(lista[0])
+            b = getPrice(lista[1])
             c = getPrice(lista[2])
 
-            profit = float(a) * float(c)
+            profit = float(a) * float(b) * float(c)
 
             await context.bot.send_message(job.chat_id, text=f"|{lista[0]} -> {lista[1]} -> {lista[2]}| = {profit}")
         except:
