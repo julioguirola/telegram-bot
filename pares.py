@@ -24,7 +24,7 @@ triangulos_ok = []
 for triangulo in triangulos:
     for sym in symbolos:
         if triangulo[1] == sym:
-            triangulos_ok.append([triangulo[0], sym.replace(" ", ""), triangulo[0]])
+            triangulos_ok.append([triangulo[0], sym.replace(" ", ""), triangulo[2]])
 
 
 print(triangulos_ok)
