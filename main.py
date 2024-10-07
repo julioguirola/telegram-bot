@@ -30,7 +30,7 @@ async def profit(context: ContextTypes.DEFAULT_TYPE) -> None:
 
             await context.bot.send_message(job.chat_id, text=f"|{lista[0]} -> {lista[1]} -> {lista[2]}| = {profit}")
         except:
-            continue
+            print("error")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Add a job to the queue."""
