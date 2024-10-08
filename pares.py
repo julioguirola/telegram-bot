@@ -20,7 +20,9 @@ triangulos_ok = []
 for triangulo in triangulos:
     final_symbol = f"{triangulo[1].split()[0]} {triangulo[0].split()[0]}"
     if final_symbol in symbolos:
-        triangulo[2] = final_symbol
+        triangulo[0] = triangulo[0].replace(" ", "")
+        triangulo[1] = triangulo[1].replace(" ", "")
+        triangulo[2] = final_symbol.replace(" ", "")
         triangulos_ok.append(triangulo)
 
-print(len(triangulos_ok))
+print(triangulos_ok)
