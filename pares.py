@@ -1,21 +1,26 @@
 txt = open("separadas.txt", "r")
-monedas = []
 symbolos = []
 
 for line in txt:
     symbolos.append(line[:len(line)-1])
-    par = line.split()
-    for moneda in par:
-        if moneda not in monedas:
-            monedas.append(moneda)
 
 triangulos = []
 
-for coin in monedas:
-    for par in symbolos:
-        if coin == par.split()[0]:
-            for par2 in symbolos:
-                if par.split()[0] == par2.split()[1] and par.split()[1] != par2.split()[0]:
-                    triangulos.append([par.replace(" ",""),f"{par.split()[1]} {par2.split()[0]}".replace(" ",""),par2.replace(" ","")])
+for first_symbol in symbolos:
+    fs_fc = first_symbol.split()[0]
+    fs_sc = first_symbol.split()[1]
+    for second_symbol in symbolos:
+        ss_fc = second_symbol.split()[0]
+        ss_sc = second_symbol.split()[1]
+        if ss_sc == fs_sc and fs_fc !=ss_fc :
+            triangulos.append([first_symbol, second_symbol, ""])
 
-print(triangulos)
+triangulos_ok = []
+
+for triangulo in triangulos:
+    final_symbol = f"{triangulo[1].split()[0]} {triangulo[0].split()[0]}"
+    if final_symbol in symbolos:
+        triangulo[2] = final_symbol
+        triangulos_ok.append(triangulo)
+
+print(len(triangulos_ok))

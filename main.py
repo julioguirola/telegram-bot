@@ -26,7 +26,7 @@ async def profit(context: ContextTypes.DEFAULT_TYPE) -> None:
             b = getPrice(lista[1])
             c = getPrice(lista[2])
 
-            profit = float(a) * float(b) * float(c)
+            profit = float(a) * 1 / float(b) * float(c)
 
             await context.bot.send_message(job.chat_id, text=f"|{lista[0]} -> {lista[1]} -> {lista[2]}| = {profit}")
         except:
