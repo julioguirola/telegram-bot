@@ -28,7 +28,7 @@ async def profit(context: ContextTypes.DEFAULT_TYPE) -> None:
 
             profit = float(a) * 1 / float(b) * float(c)
 
-            await context.bot.send_message(job.chat_id, text=f"|{lista[0]} -> {lista[1]} -> {lista[2]}| = {profit}")
+            await context.bot.send_message(job.chat_id, text=f"|{lista[0]} -> {lista[1]} -> {lista[2]}| profit = {round((profit - 1 * 100),2)}%")
         except:
             print("error")
 
